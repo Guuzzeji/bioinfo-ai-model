@@ -45,9 +45,14 @@ def vector_to_goterm(vector: list[int]) -> (list, list):
 clf = joblib.load("./data/model_100.pkl")
 
 path_to_fasta_input = input("Path to .fasta file: ")
+path_to_output = input("Path to output file (ex: ./target.txt): ")
 target_sequence = load_fasta(path_to_fasta_input)
 
-for sequence in target_sequence:
+save_file = open(path_to_output, "w")
+
+print(f"Predicting functions for {len(target_sequence)} sequences...")
+
+for i, sequence in enumerate(target_sequence):
     deepgo_result = deepgo_predict(sequence['seq'])
     custom_result = probability_model(sequence["seq_frag"])
     label_deepgo = goterm_label_to_vector([x["goterm"] for x in deepgo_result[1:]])
@@ -58,4 +63,15 @@ for sequence in target_sequence:
     predict_result = clf.predict([[x[1] for x in combine_vectors]])
     to_goterm_predict = vector_to_goterm(predict_result[0])
 
-    print(sequence['name'], to_goterm_predict)
+    # print(to_goterm_predict)
+
+    sort_results = [x for x in sorted(to_goterm_predict.items(), key=lambda x: x[1], reverse=True)][0]
+
+    if len(sort_results) == 0:
+        save_file.write(f"{sequence['name']}\tNo result found\t0\n")
+        continue
+
+    save_file.write(f"{sequence['name']}\t{sort_results[0]}\t{sort_results[1]}\n")
+    print(f"{sequence['name']} done {i+1}/{len(target_sequence)}")
+
+save_file.close()
