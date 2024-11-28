@@ -1,4 +1,6 @@
-# Bioinfo Final Project AI Proteins Prediction
+# Bioinfo Final Project AI Proteins Function Prediction
+
+>[!NOTE] This codebase is bad, but I don't get enough sleep to care and it works, so idk.
 
 Combining a multiple protein function prediction tools and a simple AI model to predict protein functions.
 
@@ -6,7 +8,20 @@ Combining a multiple protein function prediction tools and a simple AI model to 
 * DeepGO
 * Custom made tool (Under `./original_tool`, a simple probability model)
 
->[!NOTE] This codebase is bad, but I don't get enough sleep to care and it works, so idk.
+**Notes**
+
+You can download all the training data and other important data via this repository releases page. You will need this data to train and use the models.
+
+There are two models that are found in the data folder once unzipped and place in the repository root folder.
+
+* `model_10.pki` - Trained with 10 sequences found in the `train_sequences.fasta` file
+* `model_100.pki` - Trained with 100 sequences found in the `train_sequences.fasta` file
+* This models are small due to the time it takes to train them, about 2 hours for 100 sequences and about 45 minutes for 10 sequences.
+* `Weights.DATA` - is used for the probability model (the custom tool created), this uses the `New_Balanced_FragDATABASE_34567_top2000.txt` file for training
+
+All other files in the data folder are data used to train and test the models to see if it works
+
+In the future we should convert this code to work via Tensorflow or PyTorch, so we can use GPU to train the models.
 
 ## Setup
 
