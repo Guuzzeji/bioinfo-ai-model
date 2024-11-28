@@ -1,3 +1,6 @@
+import sys
+sys.path.append('../../loaders')
+
 from decimal import Decimal, getcontext
 from collections import defaultdict
 

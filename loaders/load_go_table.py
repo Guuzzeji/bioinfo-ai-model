@@ -13,4 +13,4 @@ def load_go_table(filename: str) -> list[dict]:
     return go_table
 
 
-GO_TABLE = load_go_table("./data/F_3_GO_table.DAT")
+GO_TABLE = load_go_table("./../data/F_3_GO_table.DAT")

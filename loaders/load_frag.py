@@ -7,4 +7,4 @@ def load_frag(filename: str) -> list[str]:
 
     return frag_table
 
-FRAG_TABLE = load_frag("./data/New_Balanced_FragDATABASE_34567_top2000.txt")
+FRAG_TABLE = load_frag("./../data/New_Balanced_FragDATABASE_34567_top2000.txt")

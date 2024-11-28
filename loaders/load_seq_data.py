@@ -1,6 +1,6 @@
 from load_frag import FRAG_TABLE
 
-SEQ_DATABASE = load_database_seq("./data/F_4_Uniprot_functionDATABASE.DAT")
+SEQ_DATABASE = load_database_seq("./../data/F_4_Uniprot_functionDATABASE.DAT")
 
 def load_database_seq(filename: str) -> list[dict]:
     file_data = open(filename, "r", encoding="utf-8")
