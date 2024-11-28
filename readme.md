@@ -1,6 +1,7 @@
 # Bioinfo Final Project AI Proteins Function Prediction
 
->[!NOTE] This codebase is bad, but I don't get enough sleep to care and it works, so idk.
+> [!NOTE] 
+> This codebase is bad, but I don't get enough sleep to care and it works, so idk.
 
 Combining a multiple protein function prediction tools and a simple AI model to predict protein functions.
 
