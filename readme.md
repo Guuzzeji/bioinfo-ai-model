@@ -32,18 +32,21 @@ In the future we should convert this code to work via Tensorflow or PyTorch, so 
 5. Run `pip install -r requirements.txt`
 6. Download data zip folder from repository
 
-## Run
+## Run / Usage
 
-Train model
+**Train model**
 
 ```bash
 python train.py
 ```
 
-Run prediction
+**Run prediction**
 
 ```bash
 python predict.py
 ```
 
-make sure to have a .fasta file ready to be inputed when asked
+make sure to have a `.fasta` file ready to be inputted when asked.
+
+Feel free to open up these files and change them as you see fit, you can increase the training data from the default 100 to something higher and you can change the models you want to use in the `predict.py` file.
+
