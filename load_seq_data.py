@@ -30,6 +30,7 @@ def load_fasta(filename: str) -> dict:
                 temp_seq_data += line.strip()
 
             fasta_data[-1]["seq"] = temp_seq_data
+            fasta_data[-1]["seq_frag"] = parse_seq(temp_seq_data)
             temp_seq_data = ""
             is_fasta_seq_data = False
 
