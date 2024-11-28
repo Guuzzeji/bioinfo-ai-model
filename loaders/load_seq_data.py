@@ -1,21 +1,5 @@
 from load_frag import FRAG_TABLE
 
-SEQ_DATABASE = load_database_seq("./data/F_4_Uniprot_functionDATABASE.DAT")
-
-def load_database_seq(filename: str) -> list[dict]:
-    file_data = open(filename, "r", encoding="utf-8")
-    seq_data = []
-
-    for line in file_data:
-        line = line.strip().split("|")
-        seq_data.append({
-            "seq": parse_seq(line[0]),
-            "go_tag": line[1].split(" "),
-        })
-
-    return seq_data
-
-
 def load_fasta(filename: str) -> dict:
     file_data = open(filename, "r", encoding="utf-8")
     fasta_data = []
@@ -36,7 +20,7 @@ def load_fasta(filename: str) -> dict:
 
         if line.startswith(">"):
             fasta_seq = {}
-            fasta_seq["name"] = line.strip().replace(">", "")
+            fasta_seq["name"] = line.strip().split(" ")[0].replace(">", "")
             fasta_data.append(fasta_seq)
             is_fasta_seq_data = True
 
