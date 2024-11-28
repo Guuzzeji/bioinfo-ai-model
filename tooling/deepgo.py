@@ -14,4 +14,9 @@ def deepgo_predict(seq: str) -> list[dict]:
     response = requests.post(BASE_URL_ENDPOINT, json=payload)
 
     # Going from predictions[0]/functions[2]"Molecular Function"/functions/* (getting all terms)
-    return [{"goterm": x[0], "about": x[1], "score": x[2]} for x in response.json()["predictions"][0]["functions"][1]["functions"]]
+
+    try:
+        return [{"goterm": x[0], "about": x[1], "score": x[2]} for x in response.json()["predictions"][0]["functions"][1]["functions"]]
+    except:
+        return []
+
