@@ -1,10 +1,10 @@
-import sys
-sys.path.append('../../loaders')
+import sys, os, json
+
+sys.path.append('../loaders')
+from load_go_table import load_go_table
 
 from decimal import Decimal, getcontext
 from collections import defaultdict
-
-from load_go_table import load_go_table
 
 getcontext().prec = 50
 
@@ -33,7 +33,15 @@ def model_predict(sequence_words: list[str], model: dict) -> list[tuple[str, flo
     # Return the top function word(s) with highest probability
     return sorted_functions
 
-def save_prediction(seq_name: str, data: list[tuple[str, float]], output_file: str) -> None:
-    with open(output_file, 'a') as f:
-        for func_word, probability in data:
-            f.write(f"{seq_name},{func_word},{"".join([x["go_tag"] for x in GO_TABLE if func_word == x["seq"]])},{probability}\n")
+
+def load_model(file_path: str) -> dict:
+    with open(file_path, 'r') as f:
+        return json.load(f)
+
+MODEL_WEIGHTS = "./data/weights.DATA"
+MODEL = load_model(MODEL_WEIGHTS)
+
+def probability_model(seq: list[str]) -> dict:
+    return model_predict(seq, MODEL)
+
+
