@@ -1,4 +1,4 @@
-# Bioinfo Final Project AI Proteins Function Prediction
+# [Bioinformatics] AI-Assisted Protein Function Prediction using a Hybrid of DeepGO and a Custom Probability Model
 
 > [!NOTE] 
 > This codebase is bad, but I don't get enough sleep to care and it works, so idk.
