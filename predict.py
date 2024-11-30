@@ -65,12 +65,13 @@ for i, sequence in enumerate(target_sequence):
 
     # print(to_goterm_predict)
 
-    sort_results = [x for x in sorted(to_goterm_predict.items(), key=lambda x: x[1], reverse=True)][0]
+    sort_results = [x for x in sorted(to_goterm_predict.items(), key=lambda x: x[1], reverse=True)]
 
     if len(sort_results) == 0:
         save_file.write(f"{sequence['name']}\tNo result found\t0\n")
         continue
 
+    sort_results = sort_results[0] # get first result
     save_file.write(f"{sequence['name']}\t{sort_results[0]}\t{sort_results[1]}\n")
     print(f"{sequence['name']} done {i+1}/{len(target_sequence)}")
 
