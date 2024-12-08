@@ -27,11 +27,11 @@ In the future we should convert this code to work via Tensorflow or PyTorch, so 
 ## Setup
 
 1. Install Python3.12 (or higher) and pip
-2. Open your terminal and go to this directory
+2. Open your terminal and clone this repo, then go to the project directory
 3. Run `python3 -m venv venv`
 4. Run `source venv/bin/activate` (on linux/mac) or `venv\Scripts\activate` (on windows)
 5. Run `pip install -r requirements.txt`
-6. Download data zip folder from repository
+6. Download `data.zip` folder from GitHub repository and save it to the project's root directory as `./data` folder
 
 ## Run / Usage
 
